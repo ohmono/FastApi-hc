@@ -11,7 +11,7 @@ router = APIRouter(prefix='/blog', tags=['blogs'])
 
 
 # create blog
-@router.post('', status_code=status.HTTP_201_CREATED)
+@router.post('', status_code=status.HTTP_201_CREATED, response_model=schemas.ShowBlog)
 def create_blog(req: schemas.Blog, db: Session = Depends(database.get_db), current_user: schemas.User = Depends(oauth2.get_current_user)):
     return blog.create(req, db, current_user)
 
