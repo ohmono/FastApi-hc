@@ -32,7 +32,7 @@ def delete_blog(id: int, db: Session = Depends(database.get_db), current_user: s
 
 # get all blogs
 @router.get('', status_code=status.HTTP_202_ACCEPTED, response_model=List[schemas.ShowBlog])
-def get_all_blogs(db: Session = Depends(database.get_db)):
+def get_all_blogs(db: Session = Depends(database.get_db), current_user: schemas.User = Depends(oauth2.get_current_user)):
     return blog.get_all(db)
 
 # get 1 blog
