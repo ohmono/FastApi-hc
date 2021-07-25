@@ -42,8 +42,8 @@ def delete(id, db, current_user):
 def get_all(db):
     blogs = db.query(models.Blog).all()
     if not blogs:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
-                            detail=f'not blogs found')
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail=f'not blogs found')
     return blogs
 
 
