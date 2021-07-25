@@ -18,9 +18,9 @@ app.include_router(auth.router)
 # async def read_users_me(current_user: schemas.UserId = Depends(oauth2.get_current_user)):
 #     return current_user
 
-# @app.get('/')
-# def hola():
-#    return {'response': 'correct'}
+@app.get('/')
+def hola():
+    return {'hc': 'backend'}
 
 # if __name__ == '__main__':
 #    uvicorn.run(app, host='127.0.0.1', port='9000')
